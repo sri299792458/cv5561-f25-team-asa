@@ -1,7 +1,7 @@
 # Semantic-Aware Image Retargeting
 
 **Course:** cv5561-f25 (Fall 2025)
-**Project Repository:** `[Your Repo URL Here, e.g., https://github.com/user/cv5561-f25-team-carve]`
+**Project Repository:** `[https://github.com/sri299792458/cv5561-f25-team-asa]`
 
 ## Project Description
 

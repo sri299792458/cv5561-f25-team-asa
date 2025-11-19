@@ -238,7 +238,7 @@ _If your zip expands to a different folder name, either rename it to `RGB_VST` o
 
 ### 4.3 Training the DINOv3 Classifier on PICD (optional)
 
-This repo also includes a **training notebook** for the DINOv3 composition classifier, based on the **[PICD]([CV-xueba/PICD_ImageComposition](https://github.com/CV-xueba/PICD_ImageComposition)) (Photographic Image Composition Dataset)**:
+This repo also includes a **training notebook** for the DINOv3 composition classifier, based on the **[PICD]((https://github.com/CV-xueba/PICD_ImageComposition)) (Photographic Image Composition Dataset)**:
 
 - [Paper](https://openaccess.thecvf.com/content/CVPR2025/papers/Zhao_Can_Machines_Understand_Composition_Dataset_and_Benchmark_for_Photographic_Image_CVPR_2025_paper.pdf): _“Can Machines Understand Composition? Dataset and Benchmark for Photographic Image Composition (PICD)”_, CVPR 2025.
     

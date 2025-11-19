@@ -73,15 +73,8 @@ jupyter notebook
 _All paths in the notebook are relative to the repo root._
 
 ## 2. Requirements
-
--   **OS:** Linux (recommended) or other UNIX-like
     
--   **Python:** 3.9+ (tested with 3.9 / 3.10)
-    
--   **GPU:** NVIDIA with CUDA (strongly recommended)
-    
--   **CUDA/cuDNN:** compatible with your PyTorch install
-    
+-   **Python:** 3.10
 
 ### Python packages
 

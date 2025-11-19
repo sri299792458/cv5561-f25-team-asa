@@ -1,30 +1,32 @@
-Core PyTorch (CUDA support recommended)
+Core PyTorch
 
-torch>=2.0.0
-torchvision>=0.15.0
+Note: +cu124 tags removed for standard PyPI compatibility
 
-Hugging Face Transformers (for DINOv3 / Backbone support)
+torch==2.5.1
+torchvision==0.20.1
 
-transformers>=4.30.0
-huggingface-hub
+Hugging Face Transformers
+
+transformers==4.57.1
+huggingface-hub==0.36.0
 
 Computer Vision & Image Processing
 
-opencv-python
-Pillow
-matplotlib
+opencv-python==4.11.0.86
+Pillow==12.0.0
+matplotlib==3.10.7
 
 Scientific Computing
 
-numpy
-scipy
+numpy==1.26.4
+scipy==1.15.3
 
-Acceleration (Seam Carving)
+Acceleration
 
-numba
+numba==0.62.1
 
-Utilities (Downloads & Progress)
+Utilities
 
 gdown
-tqdm
-requests
+tqdm==4.66.4
+requests==2.32.5

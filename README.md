@@ -46,6 +46,7 @@ your-repo/
 ├─ requirements.txt
 ├─ notebooks/
 │  └─ retargetme_vst_da3.ipynb
+│  └─ train_dinov3_picd.ipynb       # (optional) DINOv3 training on PICD
 ├─ checkpoints/
 │  └─ dinov3/
 │    └─ best_dinov3_classifier_reduced.pth
@@ -72,8 +73,14 @@ jupyter notebook
 _All paths in the notebook are relative to the repo root._
 
 ## 2. Requirements
+
+-   **OS:** Linux (recommended) or other UNIX-like
     
--   **Python:** 3.10
+-   **Python:** 3.9+ (tested with 3.9 / 3.10)
+    
+-   **GPU:** NVIDIA with CUDA (strongly recommended)
+    
+-   **CUDA/cuDNN:** compatible with your PyTorch install
     
 
 ### Python packages
@@ -201,7 +208,7 @@ The entire `RGB_VST` folder (Python files + `RGB_VST.pth` weights) is stored as 
 From the repo root, download and unpack it (replace `<RGB_VST_ZIP_FILE_ID>` with your actual ID):
 
 ```
-gdown --id 1EksV_DbHt_NGB54C1bR9q8WF-aZHEoGY -O RGB_VST.zip
+gdown --id <RGB_VST_ZIP_FILE_ID> -O RGB_VST.zip
 unzip RGB_VST.zip
 
 ```
@@ -235,6 +242,32 @@ from Models.ImageDepthNet import ImageDepthNet
 ```
 
 _If your zip expands to a different folder name, either rename it to `RGB_VST` or adjust the path in the notebook._
+
+### 4.3 Training the DINOv3 Classifier on PICD (optional)
+
+This repo also includes a **training notebook** for the DINOv3 composition classifier, based on the **[PICD]([CV-xueba/PICD_ImageComposition](https://github.com/CV-xueba/PICD_ImageComposition)) (Photographic Image Composition Dataset)**:
+
+- [Paper](https://openaccess.thecvf.com/content/CVPR2025/papers/Zhao_Can_Machines_Understand_Composition_Dataset_and_Benchmark_for_Photographic_Image_CVPR_2025_paper.pdf): _“Can Machines Understand Composition? Dataset and Benchmark for Photographic Image Composition (PICD)”_, CVPR 2025.
+    
+        
+
+Training notebook location:
+
+`notebooks/train_dinov3_picd.ipynb` 
+
+You can optionally download the PICD dataset via `gdown`:
+
+`mkdir -p data/picd
+gdown --id 1rqI1qT_WVx8c9iE9TeC_X3d__875NBQp -O data/picd/PICD.zip cd data/picd
+unzip PICD.zip cd ../..` 
+
+The training notebook expects the PICD data under `data/picd/` (you can adjust paths inside the notebook if needed).
+
+Once trained, the resulting classifier head can be saved to:
+
+`checkpoints/dinov3/best_dinov3_classifier_reduced.pth` 
+
+and will be picked up automatically by `retargetme_vst_da3.ipynb` for inference.
 
 ## 5. RetargetMe Dataset
 

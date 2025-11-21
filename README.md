@@ -201,7 +201,7 @@ The entire `RGB_VST` folder (Python files + `RGB_VST.pth` weights) is stored as 
 From the repo root, download and unpack it (replace `<RGB_VST_ZIP_FILE_ID>` with your actual ID):
 
 ```
-gdown --id <RGB_VST_ZIP_FILE_ID> -O RGB_VST.zip
+gdown --id 1EksV_DbHt_NGB54C1bR9q8WF-aZHEoGY -O RGB_VST.zip
 unzip RGB_VST.zip
 
 ```

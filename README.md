@@ -135,11 +135,6 @@ Each composition class has a custom energy recipe:
 - **Mixed precision**: bfloat16 for 2× faster depth inference
 - **Energy downsampling**: Simulate costs at 256px, then interpolate
 
-### Safety Features
-- **DDVR (Depth-Discontinuity Violation Rejection)**: Prevents carving through object boundaries
-- **Rescue scaling**: Emergency fallback if seam quota exceeded
-- **Robust depth normalization**: 99th percentile clipping to avoid outliers
-
 ---
 
 ## Usage
@@ -185,9 +180,9 @@ jupyter lab
 ```
 
 **Configuration**:
-- Dataset: PICD (50k+ images, 24→10 classes)
+- Dataset: PICD (~43K images, 24→10 classes)
 - Architecture: Frozen DINOv3 backbone + linear head
-- Validation accuracy: ~85-90%
+- Validation accuracy: ~75-80%
 - Output: `checkpoints/dinov3/best_dinov3_classifier_reduced.pth`
 
 ---
@@ -196,7 +191,6 @@ jupyter lab
 
 - **Python**: 3.9+
 - **GPU**: NVIDIA with CUDA (8GB+ VRAM recommended)
-- **OS**: Linux/macOS/Windows+WSL
 
 ### Key Dependencies
 ```
@@ -215,39 +209,10 @@ tqdm==4.66.4
 
 ## Performance
 
-**Processing Time** (512×512 → 512×256, V100 GPU):
-- Model inference: ~330ms
-- Energy construction: ~50ms
-- Multi-op planning: ~100ms
-- Seam carving: ~200ms
-- **Total**: ~680ms/image
-
-**GPU Memory**: ~8GB VRAM (recommend 12GB+)
-
----
-
-## Troubleshooting
-
-### Out of GPU Memory
-```python
-# In train_dinov3_picd.ipynb, reduce batch size
-batch_size = 128  # Instead of 256
-```
-
-### RGB-VST Import Error
-```python
-# Verify path in retargetme.ipynb
-import sys
-sys.path.insert(0, "RGB_VST")
-```
-
-### Depth Anything 3 Not Found
-```bash
-cd depth-anything-3
-pip install -e . --no-deps
-cd ..
-```
-
+**Processing Time** (700×466 → 350×466, A40 GPU):
+- Model inference: ~450ms
+- Seam carving: ~310ms
+- **Total**: ~760ms/image
 ---
 
 ## References
